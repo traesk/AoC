@@ -142,7 +142,7 @@ func Test_reverseCaptchaPartTwo(t *testing.T) {
 					9,
 				},
 			},
-			want: 0,
+			want: 4,
 		},
 	}
 	for _, tt := range tests {

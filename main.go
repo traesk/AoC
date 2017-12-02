@@ -1,12 +1,15 @@
 package main
 
 import (
-	"AoC/1"
 	"fmt"
 	"strconv"
+
+	"github.com/traesk/AoC/1"
+	"github.com/traesk/AoC/2"
 )
 
 const pathDay1 = "./1/captcha"
+const pathDay2 = "./2/sp"
 
 type Solution struct {
 	Day     int
@@ -16,12 +19,19 @@ type Solution struct {
 
 func main() {
 	day1input, day1answer, day1ext := day1.Solve(pathDay1)
+	day2answer := day2.Solve1(pathDay2)
+	day2answer2 := day2.Solve2(pathDay2)
 	solutions := []Solution{
 		{
 			Day:   1,
 			Input: day1input,
 
 			Answers: day1answer + ", " + day1ext,
+		},
+		{
+			2,
+			"sp",
+			strconv.Itoa(day2answer) + ", " + strconv.Itoa(day2answer2),
 		},
 	}
 
