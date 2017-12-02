@@ -24,6 +24,8 @@ func Solve2(path string) int {
 	}
 	return chck
 }
+
+// want z; x / y = z; where x % y = 0;
 func getChecksum2(path string) (int, error) {
 	fmt.Println("getChecksum2...")
 	_, spread, err := makeSpreadSheet(path)
@@ -36,8 +38,7 @@ func getChecksum2(path string) (int, error) {
 		curr := 0
 		for j := 0; j < 16; j++ {
 			curr = set[j]
-			// En radda nuffror står framför oss
-			// Vi vill veta x / y % 0
+			// want x / y % 0
 			for h := 0; h < 16; h++ {
 				temp := set[h]
 				if h != j {
@@ -59,6 +60,7 @@ func getChecksum2(path string) (int, error) {
 	return checkSum, nil
 }
 
+// Want the biggest number on each row
 func getChecksum(path string) (int, error) {
 	fmt.Println("getChecksum...")
 	_, spread, err := makeSpreadSheet(path)
@@ -71,15 +73,12 @@ func getChecksum(path string) (int, error) {
 		biggest := 0
 		smallest := 9999
 		for j := 0; j < 16; j++ {
-			// En radda nuffror står framför oss
-			// Vi vill ha den största, den minsta, och skillnaden
 			if set[j] < smallest {
 				smallest = set[j]
 			}
 			if set[j] > biggest {
 				biggest = set[j]
 			}
-
 		}
 		fmt.Println("Set:", set)
 		fmt.Println("Diff is", biggest, "-", smallest, "=", biggest-smallest)
@@ -116,19 +115,18 @@ func makeSpreadSheet(path string) ([]string, [16][16]int, error) {
 		s := string(b)
 		_, err := strconv.Atoi(s)
 		if err != nil {
-			//fmt.Println("space!")
+			// A wild space appeared
 			list = append(list, seq)
 			seq = ""
 		} else {
 			seq = seq + s
-			//fmt.Println(v)
 			if i == len(trim)-1 {
 				list = append(list, seq)
 			}
 		}
 
 	}
-	//fmt.Println("len", len(list), list)
+
 	var s [16][16]int
 	counter := 0
 	for i := 0; i < 16; i++ {
@@ -136,14 +134,14 @@ func makeSpreadSheet(path string) ([]string, [16][16]int, error) {
 			s[i][j] = 0
 			num, err := strconv.Atoi(list[counter])
 			if counter > 616 {
-				//fmt.Println("Debug")
+
 			}
 			if err != nil {
-				//fmt.Println("Counter:", counter, "i:", i, "j:", j)
+
 				counter = counter + 1
 				j--
 			} else {
-				//fmt.Println("Add num:", num, "Counter:", counter)
+
 				s[i][j] = num
 				counter = counter + 1
 			}
@@ -151,6 +149,5 @@ func makeSpreadSheet(path string) ([]string, [16][16]int, error) {
 		}
 	}
 
-	//fmt.Println("List:", list, s)
 	return list, s, nil
 }

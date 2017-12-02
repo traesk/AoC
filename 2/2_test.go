@@ -48,26 +48,6 @@ func Test_makeSpreadSheet(t *testing.T) {
 	}
 }
 
-func TestSolve1(t *testing.T) {
-	type args struct {
-		path string
-	}
-	tests := []struct {
-		name string
-		args args
-		want int
-	}{
-	// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Solve1(tt.args.path); got != tt.want {
-				t.Errorf("Solve() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
-
 func Test_getChecksum(t *testing.T) {
 	type args struct {
 		path string
@@ -109,31 +89,6 @@ func Test_getChecksum(t *testing.T) {
 	}
 }
 
-func Test_readFile(t *testing.T) {
-	type args struct {
-		path string
-	}
-	tests := []struct {
-		name    string
-		args    args
-		want    []byte
-		wantErr bool
-	}{
-	// TODO: Add test cases.
-	}
-	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			got, err := readFile(tt.args.path)
-			if (err != nil) != tt.wantErr {
-				t.Errorf("readFile() error = %v, wantErr %v", err, tt.wantErr)
-				return
-			}
-			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("readFile() = %v, want %v", got, tt.want)
-			}
-		})
-	}
-}
 func Test_Solve2(t *testing.T) {
 	a := Solve2("test3")
 	if a != 9 {

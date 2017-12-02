@@ -12,7 +12,7 @@ import (
 func Solve(path string) (string, string, string) {
 	input, inputNumbers, err := readFile(path)
 	if err != nil {
-		//fmt.Println(":<")
+
 	}
 	c := reverseCaptcha(inputNumbers)
 	answer := strconv.Itoa(c)
@@ -29,14 +29,14 @@ func reverseCaptcha(inputNumbers []int) int {
 	prev = 0
 	for i, curr := range inputNumbers {
 		if curr == prev {
-			//fmt.Println(curr, "==", prev)
+
 			sum += curr
-			//fmt.Println(sum)
+
 		}
 		prev = curr
 		if len(inputNumbers) == i+1 {
 			if first == curr {
-				//fmt.Println(curr, "==", prev)
+
 				sum += first
 			}
 		}
@@ -44,17 +44,16 @@ func reverseCaptcha(inputNumbers []int) int {
 	return sum
 }
 func reverseCaptchaPartTwo(inputNumbers []int) int {
-	//var first int
+
 	var sum int
 	var halfaway int
-	//first = inputNumbers[0]
-	//fmt.Println("Last element", len(inputNumbers)-1)
+
 	half := len(inputNumbers) / 2
-	//fmt.Println("len:", half)
+
 	for i, curr := range inputNumbers {
-		//fmt.Println("asd", i+half)
+
 		if half > i {
-			//fmt.Println(i + half)
+
 			halfaway = inputNumbers[i+half]
 
 		} else if half == i {
@@ -63,19 +62,12 @@ func reverseCaptchaPartTwo(inputNumbers []int) int {
 			halfaway = inputNumbers[i-half]
 		}
 		if curr == halfaway {
-			//fmt.Println(curr, "==", halfaway)
+
 			sum += curr
 
-		} /*
-			if len(inputNumbers) == i+1 {
-				if first == curr {
-					fmt.Println(curr, "Lastnum", halfaway)
-					sum += first
-					fmt.Println(sum)
-				}
-			}*/
+		}
 	}
-	//fmt.Println("Sum to return:", sum)
+
 	return sum
 }
 func readFile(path string) (string, []int, error) {
@@ -91,7 +83,6 @@ func readFile(path string) (string, []int, error) {
 	for _, b := range fs {
 		s := string(b)
 
-		//i, err := strconv.ParseInt(s, 32, 32)
 		i, err := strconv.Atoi(s)
 		if err != nil {
 
