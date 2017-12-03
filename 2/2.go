@@ -27,7 +27,7 @@ func Solve2(path string) int {
 
 // want z; x / y = z; where x % y = 0;
 func getChecksum2(path string) (int, error) {
-	fmt.Println("getChecksum2...")
+	//fmt.Println("getChecksum2...")
 	_, spread, err := makeSpreadSheet(path)
 	if err != nil {
 		return 0, err
@@ -43,8 +43,8 @@ func getChecksum2(path string) (int, error) {
 				temp := set[h]
 				if h != j {
 					if d := curr % temp; d == 0 {
-						fmt.Println("Winner found!", curr, "is divisible by", temp)
-						fmt.Println(curr / temp)
+						//fmt.Println("Winner found!", curr, "is divisible by", temp)
+						//fmt.Println(curr / temp)
 						checkSum += curr / temp
 					}
 
@@ -62,7 +62,7 @@ func getChecksum2(path string) (int, error) {
 
 // Want the biggest number on each row
 func getChecksum(path string) (int, error) {
-	fmt.Println("getChecksum...")
+	//fmt.Println("getChecksum...")
 	_, spread, err := makeSpreadSheet(path)
 	if err != nil {
 		return 0, err
@@ -80,10 +80,10 @@ func getChecksum(path string) (int, error) {
 				biggest = set[j]
 			}
 		}
-		fmt.Println("Set:", set)
-		fmt.Println("Diff is", biggest, "-", smallest, "=", biggest-smallest)
+		//fmt.Println("Set:", set)
+		//fmt.Println("Diff is", biggest, "-", smallest, "=", biggest-smallest)
 		diff := biggest - smallest
-		fmt.Println(checkSum, "+", diff, "=", checkSum+diff)
+		//fmt.Println(checkSum, "+", diff, "=", checkSum+diff)
 		checkSum += diff
 
 	}

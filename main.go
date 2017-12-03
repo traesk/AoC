@@ -6,6 +6,7 @@ import (
 
 	"github.com/traesk/AoC/1"
 	"github.com/traesk/AoC/2"
+	"github.com/traesk/AoC/3"
 )
 
 const pathDay1 = "./1/captcha"
@@ -18,6 +19,7 @@ type Solution struct {
 }
 
 func main() {
+	day3.Solve(325489)
 	day1input, day1answer, day1ext := day1.Solve(pathDay1)
 	day2answer := day2.Solve1(pathDay2)
 	day2answer2 := day2.Solve2(pathDay2)
