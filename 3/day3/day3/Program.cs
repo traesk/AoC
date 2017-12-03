@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 class Program
@@ -14,8 +14,8 @@ class Program
         var stepCountChange = true; // Change when true.
         var direction = 0; // right, up, left, down
 
-        // Get the x,y coordinate for each step of i.
-        for (var i = 1;;)
+        // Get the x,y coordinate for each step of i. 
+        for (var i = 1; ;)
         {
             for (var j = 0; j < stepCount; j += 1)
             {
@@ -56,7 +56,7 @@ class Program
             stepCountChange = !stepCountChange;
             if (stepCountChange) stepCount += 1;
         }
-EndOfLoop:
+    EndOfLoop:
         var l1distance = Math.Abs(x) + Math.Abs(y);
 
         System.Diagnostics.Debug.WriteLine("f({0}) = ({1},{2}), |f({0})| = {3}", n, x, y, l1distance);
@@ -78,7 +78,7 @@ EndOfLoop:
 
         values["0,0"] = 1;
 
-        for (;;)
+        for (; ; )
         {
             for (var j = 0; j < stepCount; j += 1)
             {
